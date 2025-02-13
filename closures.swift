@@ -47,3 +47,17 @@ func counter()->()->Void{
 let gameCounter = counter()
 gameCounter()
 gameCounter()
+
+
+func sayHello(to name: String, finallySayIt: @escaping (String)->()){
+    let newName= name.uppercased()
+
+    DispatchQueue.main.asyncAfter(deadline: .now()+2){
+        finallySayIt("Hello \(newName)")
+    }
+} 
+
+sayHello("Airej"){
+    response in
+    print(response)
+}
